@@ -17,9 +17,9 @@ class GamesController < ApplicationController
   end
 
   def answer
-    @end_time = Time.now
+    end_time = Time.now
     start_time = Time.parse(params[:start_time])
-    @result = { time: @end_time - start_time}
+    @result = { time: end_time - start_time}
     score_and_message = score_and_message(params[:word], params[:grid], @result[:time])
     @result[:score] = score_and_message.first
   @result[:message] = score_and_message.last
